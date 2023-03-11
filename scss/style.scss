@@ -1,0 +1,270 @@
+@use 'normalize';
+
+.header_area {
+	width: 100%;
+	height: 60px;
+	background-color: red;
+	z-index: 5000;
+}
+
+.fastview_secion {
+	// background-color: pink;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	// top: 60px;
+	// background-image: url('https://thumb.ac-illust.com/07/07a39a4e98ead6f94ff1ad20f7228d50_w.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-position: 50% 60px;
+	&::before {
+		content: '';
+		position: absolute;
+		display: inline-block;
+		width: 100%;
+		height: 100vh;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background-image: url('https://thumb.ac-illust.com/07/07a39a4e98ead6f94ff1ad20f7228d50_w.jpeg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		z-index: 0;
+		padding: 60px 0 0 0;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100vh;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-image: url(https://chicodeza.com/wordpress/wp-content/uploads/sakurasozai-10.png),
+			url(https://chicodeza.com/wordpress/wp-content/uploads/sakurasozai-10.png),
+			url(https://chicodeza.com/wordpress/wp-content/uploads/sakurasozai-10.png),
+			url(https://chicodeza.com/wordpress/wp-content/uploads/sakurasozai-10.png);
+		background-size: 100px, 200px, 130px, 200px;
+		background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+		background-position: -30px 80px, 190px 90px, 260px 480px, -50px 420px;
+		z-index: 1;
+	}
+	.re_container {
+		.message_div {
+			position: absolute;
+			width: 100%;
+			top: 40%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			z-index: 2;
+			&::before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 500px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-image: url('https://chicodeza.com/wordpress/wp-content/uploads/sakurasozai-10.png');
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				z-index: -1;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 190px;
+				top: -50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-image: url(https://chicodeza.com/wordpress/wp-content/uploads/sakurasozai-10.png);
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				z-index: -3;
+			}
+			p {
+				font-size: 2rem;
+				font-weight: 100;
+				line-height: 1.75;
+				color: white;
+				margin: 0;
+			}
+		}
+	}
+}
+
+/*=========  ファーストビュー背景のCSS ===============*/
+.fastview_secion_fadeUpAnime {
+	animation-name: fastview_secion_fadeUpAnime;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+	animation-delay: 1s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+
+	background-color: rgb(255, 255, 255);
+	opacity: 0;
+}
+
+@keyframes fastview_secion_fadeUpAnime {
+	from {
+		opacity: 0;
+		background-color: rgb(255, 255, 255);
+	}
+
+	to {
+		opacity: 1;
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+
+/*=========  MessagedivのCSS ===============*/
+
+.message_div_fadeUpAnime {
+	animation-name: fadeUpAnime;
+	animation-duration: 3s;
+	animation-timing-function: ease-out;
+	animation-delay: 1.5s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+
+	opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.9);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+/*========= 1文字ずつ出現させるためのCSS ===============*/
+
+.message_div p span {
+	opacity: 0;
+}
+.message_div p.appeartext span {
+	animation-name: text_anime_on;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+	animation-delay: 100s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+
+	// /*--内訳
+	// ①animation-name: アニメーション名;
+	// ②animation-duration: 時間(値);
+	// ③animation-timing-function: 値;
+	// ④animation-delay: 時間(値);
+	// ⑤animation-iteration-count: 値;
+	// ⑥animation-direction: 値;
+	// ⑦animation-fill-mode: 値;
+	// ⑧animation-play-state: 値;
+}
+@keyframes text_anime_on {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/*=========  ヘッダーのフェードインCSS ===============*/
+
+.header_area_fadeInAnime {
+	animation-name: header_area_fadeInAnime;
+	animation-duration: 2s;
+	animation-timing-function: ease-out;
+	animation-delay: 2.5s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+
+	position: absolute;
+	transform: translate(-50%, 0%);
+	opacity: 0;
+	left: 50%;
+	// top: -10%;
+}
+
+@keyframes header_area_fadeInAnime {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -20%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(-50%, 0%);
+	}
+}
+
+/*=========  花びらのフェードインCSS ===============*/
+
+.fastview_secion_fadeUpAnime.hanabira1_fadeInAnime::before {
+	animation: hanabira1_fadeInAnime;
+	animation-duration: 8s;
+	animation-timing-function: ease-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	opacity: 1;
+}
+
+@keyframes hanabira1_fadeInAnime {
+	0% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.fastview_secion_fadeUpAnime.hanabira1_fadeInAnime::after {
+	animation: hanabira2_fadeInAnime;
+	animation-duration: 5s;
+	animation-timing-function: ease-out;
+	animation-delay: 2.5s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+
+	opacity: 0;
+}
+
+@keyframes hanabira2_fadeInAnime {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
