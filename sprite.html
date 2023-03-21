@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous"></script>
+		<script src="kawaii.js"></script>
+		<link
+			rel="stylesheet"
+			href="scss/style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="sprite"></div>
+	</body>
+</html>
+
+<!-- <script>
+	const frameWidth = 30
+	const frameHeight = 15
+	const s = 5
+	let img, anim
+
+	function preload() {
+		img = loadImage('https://raw.githubusercontent.com/BaroqueEngine/cc/main/36/0.png')
+	}
+
+	function setup() {
+		createCanvas(windowWidth, windowHeight)
+		noSmooth()
+
+		anim = Anim.init(
+			(width / 3) * 2 - (frameWidth * s) / 2,
+			height / 2 - (frameHeight * s) / 2,
+			img,
+			frameWidth,
+			frameHeight,
+			s
+		)
+		Anim.addAction(anim, 'normal', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 5, true)
+		Anim.play(anim, 'normal')
+	}
+
+	function draw() {
+		clear()
+
+		image(img, width / 3 - frameWidth / 2, height / 2 - frameHeight / 2)
+		const frame = anim.action.frames[anim.action.frameIndex]
+		const x = frame % anim.xNum
+		const y = floor(frame / anim.xNum)
+		push()
+		stroke(240)
+		noFill()
+		rect(width / 3 + x * frameWidth - frameWidth / 2, height / 2 + y * frameHeight, frameWidth, frameHeight)
+		pop()
+
+		Anim.update(anim)
+	}
+
+	const Anim = {
+		init: function (x, y, img, width, height, scale) {
+			return {
+				x,
+				y,
+				image: img,
+				width,
+				height,
+				scale,
+				group: [],
+				xNum: img.width / width,
+				action: {},
+			}
+		},
+
+		addAction: function (anim, name, frames, interval, looped) {
+			anim.group.push({ name, frames, frameIndex: 0, interval, looped })
+		},
+
+		play: function (anim, name) {
+			anim.group.forEach((action) => {
+				if (action.name === name) {
+					anim.action = action
+					anim.finished = false
+					anim.time = 0
+					anim.frameIndex = 0
+				}
+			})
+		},
+
+		update: function (anim) {
+			const frame = anim.action.frames[anim.action.frameIndex]
+			const x = frame % anim.xNum
+			const y = floor(frame / anim.xNum)
+
+			copy(
+				anim.image,
+				x * anim.width,
+				y * anim.height,
+				anim.width,
+				anim.height,
+				anim.x,
+				anim.y,
+				anim.width * anim.scale,
+				anim.height * anim.scale
+			)
+
+			if (anim.action.looped || !anim.finished) {
+				anim.time++
+				if (anim.time % anim.action.interval === 0) {
+					if (anim.action.frameIndex >= anim.action.frames.length - 1) {
+						anim.finished = true
+						if (anim.action.looped) {
+							anim.action.frameIndex = 0
+						}
+					} else {
+						anim.action.frameIndex++
+					}
+				}
+			}
+		},
+	}
+</script> -->
