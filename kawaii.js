@@ -46,3 +46,8 @@ $(window).scroll(function () {
 	header_area_fadeInAnime()
 	hanabira1_fadeInAnime()
 }) // ここまで画面をスクロールをしたら動かしたい場合の記述
+
+//10秒後にアラートを表示する実装
+setTimeout(function () {
+	$('.alert').fadeIn(500)
+}, 10000)
