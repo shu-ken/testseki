@@ -40,6 +40,13 @@ $(window).on('load', function () {
 	EachTextAnimeControl() /* アニメーション用の関数を呼ぶ*/
 }) // ここまで画面が読み込まれたらすぐに動かしたい場合の記述
 
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+	fadeAnime() /* アニメーション用の関数を呼ぶ*/
+	header_area_fadeInAnime()
+	hanabira1_fadeInAnime()
+}) // ここまで画面をスクロールをしたら動かしたい場合の記述
+
 //10秒後にアラートを表示する実装
 setTimeout(function () {
 	$('.alert').fadeIn(500)
